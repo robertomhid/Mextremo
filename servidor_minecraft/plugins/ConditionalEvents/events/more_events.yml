@@ -1,0 +1,209 @@
+Events:
+  event8:
+    type: player_command
+    conditions:
+      - "%main_command% == /youtube"
+    actions:
+      default:
+        - 'cancel_event: true'
+        - "message: &7Check the Youtube: &b<link>"
+  event9:
+    type: player_command
+    cooldown: 15
+    prevent_cooldown_activation:
+      - error1
+      - error2
+    conditions:
+      - '%main_command% == /announce'
+      - '%args_length% == 0 execute error1'
+      - '%vault_eco_balance% < 500 execute error2'
+    actions:
+      default:
+        - 'cancel_event: true'
+        - 'to_all: centered_message: &f&m                                                      '
+        - 'to_all: centered_message: &c&lAnnounce'
+        - 'to_all: centered_message: &e%player% &7is making an announcement:'
+        - 'to_all: centered_message:  '
+        - 'to_all: centered_message: &7%args_substring_1-100%'
+        - 'to_all: centered_message:  '
+        - 'to_all: centered_message: &f&m                                                      '
+        - 'console_command: eco take %player% 500'
+      error1:
+        - 'cancel_event: true'
+        - 'message: &cYou have to use &7/announce <message>&c.'
+      error2:
+        - 'cancel_event: true'
+        - 'message: &cYou need $500 to use this command.'
+      cooldown:
+        - 'cancel_event: true'
+        - 'message: &cYou must wait &7%time% &cbefore using this command again.'
+  event10:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a title {"text":"%player% MURIÓ","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a subtitle {"text":"El mundo será reiniciado en... 6","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 1 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 20'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a subtitle {"text":"El mundo será reiniciado en... 5","color":"gray","bold":true}'
+
+        - 'wait_ticks: 20'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a subtitle {"text":"El mundo será reiniciado en... 4","color":"gray","bold":true}'
+
+        - 'wait_ticks: 20'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a subtitle {"text":"El mundo será reiniciado en... 3","color":"gray","bold":true}'
+
+        - 'wait_ticks: 20'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a subtitle {"text":"El mundo será reiniciado en... 2","color":"gray","bold":true}'
+
+        - 'wait_ticks: 20'
+        - 'player_command_as_op: execute if score %player% muertes matches 1 run title @a subtitle {"text":"ERES UNA MIERDA","color":"dark_red","bold":true}'
+
+        - 'wait_ticks: 30'
+        - 'console_command: execute if score %player% muertes matches 1 run fahare reset'
+  event11:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 2 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 2 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 2 run title @a subtitle {"text":"OTRA VEZ...","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 2 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 2 run fahare reset'
+  event12:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 3 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 3 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 3 run title @a subtitle {"text":"TE ODIAMOS AAAAHHAHAH","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 3 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 3 run fahare reset'
+  event13:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 4 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 4 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 4 run title @a subtitle {"text":"BASTA POR FAVOR TE LO SUPLICO","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 4 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 4 run fahare reset'
+  event14:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 5 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 5 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 5 run title @a subtitle {"text":"EL PEPE, ETE SECH","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 5 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 5 run fahare reset'
+  event15:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 6 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 6 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 6 run title @a subtitle {"text":"ADRIAN LO HARÍA MEJOR","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 6 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 6 run fahare reset'
+  event16:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 7 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 7 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 7 run title @a subtitle {"text":"DESINSTALA","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 7 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 7 run fahare reset'
+  event17:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 8 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 8 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 8 run title @a subtitle {"text":"NO PENSÉ LLEGAR HASTA ESTE MENSAJE","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 8 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 8 run fahare reset'
+  event18:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 9 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 9 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 9 run title @a subtitle {"text":"INSERTE TEXTO","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 9 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 9 run fahare reset'
+  event19:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 10 run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 10 run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 10 run title @a subtitle {"text":"YA NO ERES MI HERMANO","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 10 run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 10 run fahare reset'
+  event20:
+
+    type: player_death
+
+    actions:
+
+      default:
+        - 'player_command_as_op: execute if score %player% muertes matches 11.. run title @a times 5 120 5'
+        - 'player_command_as_op: execute if score %player% muertes matches 11.. run title @a title {"text":"%player%","color":"dark_red","bold":true}'
+        - 'player_command_as_op: execute if score %player% muertes matches 11.. run title @a subtitle {"text":"TÚ DE NUEVO......","color":"gray","bold":true}'
+        - 'console_command: execute if score %player% muertes matches 11.. run execute at @a run playsound minecraft:custom.muerte ambient @a'
+
+        - 'wait_ticks: 130'
+        - 'console_command: execute if score %player% muertes matches 11.. run fahare reset'
+        
